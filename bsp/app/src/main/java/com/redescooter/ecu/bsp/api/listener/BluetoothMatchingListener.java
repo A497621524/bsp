@@ -1,5 +1,6 @@
 package com.redescooter.ecu.bsp.api.listener;
 
+
 import com.redescooter.ecu.bsp.api.model.BleScanMessage;
 
 import java.util.List;

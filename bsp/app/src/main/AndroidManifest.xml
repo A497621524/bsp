@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.redescooter.ecu.bsp.api.com.redescooter.ecu.bsp.MainActivity">
+        <activity android:name="com.redescooter.ecu.bsp.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

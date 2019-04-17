@@ -11,6 +11,6 @@ import com.redescooter.ecu.bsp.api.model.BmsExchangeMessage;
  */
 public interface BmsExchangeListener extends AbsListener{
 
-    void handle(BmsExchangeMessage bmsExchangeMessage);
+    void handle(BmsExchangeMessage msg);
 
 }
