@@ -91,6 +91,7 @@ public class ListenerManager {
         rfidOperationListener.handle("345342","0987654");
     }
 
+    
     public void TimerReportListener(){
         TimerReportListener timerReportListener = (TimerReportListener)listener;
         ReportMessage msg = new ReportMessage();
