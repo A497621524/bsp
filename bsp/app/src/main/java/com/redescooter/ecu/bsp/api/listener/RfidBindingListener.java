@@ -9,7 +9,7 @@ public interface RfidBindingListener extends AbsListener{
      * @param Rfid
      * @param key
      */
-    void handle(String Rfid,String key);
+    void handle(String rfid,String key);
 
 
 }

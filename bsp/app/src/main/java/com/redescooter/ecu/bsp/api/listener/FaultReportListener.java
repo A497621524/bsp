@@ -1,5 +1,7 @@
 package com.redescooter.ecu.bsp.api.listener;
 
+import com.redescooter.ecu.bsp.api.model.ObdMessage;
+
 /**
  * 6	OBD
  * 6.1	控制器相关
@@ -18,6 +20,6 @@ package com.redescooter.ecu.bsp.api.listener;
  */
 public interface FaultReportListener extends AbsListener{
 
-    void handle(FaultReportListener msg);
+    void handle(ObdMessage msg);
 
 }
