@@ -18,6 +18,6 @@ import com.redescooter.ecu.bsp.api.model.MeterMessage;
  */
 public interface MeterListener extends AbsListener{
 
-    void handle(MeterMessage msg);
+    public void handle(MeterMessage msg);
 
 }

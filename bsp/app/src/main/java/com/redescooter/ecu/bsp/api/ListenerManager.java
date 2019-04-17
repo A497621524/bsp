@@ -5,6 +5,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.redescooter.ecu.bsp.api.listener.AbsListener;
+import com.redescooter.ecu.bsp.api.listener.MeterListener;
+import com.redescooter.ecu.bsp.api.model.MeterMessage;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,5 +32,10 @@ public class ListenerManager {
         this.listener = null;
     }
 
+    public void asd(){
+        MeterListener meterListener = (MeterListener)listener;
+        MeterMessage msg = new MeterMessage();
+        meterListener.handle(msg);
+    }
 
 }

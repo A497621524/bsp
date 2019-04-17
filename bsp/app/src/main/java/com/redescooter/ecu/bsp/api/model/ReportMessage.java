@@ -1,6 +1,6 @@
 package com.redescooter.ecu.bsp.api.model;
 
-// TODO: 2019/4/16  
+// TODO: 2019/4/16
 public class ReportMessage {
     /**
      * 车锁状态
@@ -27,7 +27,10 @@ public class ReportMessage {
      */
     private float speed;
 
-
+    /**
+     * 定位
+     */
+    private Gps Gps;
 
     
    
