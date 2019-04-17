@@ -5,6 +5,8 @@ import android.widget.Toast;
 
 import com.redescooter.ecu.bsp.api.listener.AbsListener;
 
+import java.io.File;
+
 /**
  * 所有Listener只能注册一次
  * 如果重复注册后面的覆盖前面的
@@ -12,12 +14,14 @@ import com.redescooter.ecu.bsp.api.listener.AbsListener;
 public class ListenerManager {
     private AbsListener listener;
 
-    public void registe(AbsListener listener){
+    public void register(AbsListener listener){
         this.listener = listener;
     }
 
     public void unregiste(AbsListener listener){
         this.listener = null;
     }
+
+    
 
 }

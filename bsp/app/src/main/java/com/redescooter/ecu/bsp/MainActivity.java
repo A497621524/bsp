@@ -3,6 +3,7 @@ package com.redescooter.ecu.bsp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.redescooter.ecu.bsp.api.ListenerManager;
@@ -24,9 +25,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        listenerManager.register(new MeterListener() {
+            @Override
+            public void handle(MeterMessage msg) {
 
+            }
+        });
     }
-
-
 
 }

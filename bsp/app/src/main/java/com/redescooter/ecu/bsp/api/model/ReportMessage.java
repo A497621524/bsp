@@ -21,6 +21,14 @@ public class ReportMessage {
      * 电池仓锁状态
      */
     private boolean batteryCompartmentLockStatus;
+
+    /**
+     * 速度       单位 m/s
+     */
+    private float speed;
+
+
+
     
    
 }
