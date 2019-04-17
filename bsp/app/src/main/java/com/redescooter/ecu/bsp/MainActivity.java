@@ -17,20 +17,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListenerManager listenerManager = new ListenerManager();
-    BluetoothMatchingListener bluetoothMatchingListener;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listenerManager.register(new MeterListener() {
-            @Override
-            public void handle(MeterMessage msg) {
-
-            }
-        });
     }
 
 }
