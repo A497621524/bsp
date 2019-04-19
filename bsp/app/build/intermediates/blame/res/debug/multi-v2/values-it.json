@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Android\\Android\\bsp\\redebsp\\bsp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-it\\values-it.xml",
+            "outputFile": "D:\\Android\\Android\\bsp\\bsp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-it\\values-it.xml",
             "map": [
                 {
                     "source": "C:\\Users\\49762\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\51ac4b8592f3054705be143d32389f27\\res\\values-it\\values-it.xml",

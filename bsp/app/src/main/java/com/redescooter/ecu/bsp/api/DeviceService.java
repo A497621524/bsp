@@ -21,45 +21,43 @@ import java.util.List;
  */
 public interface DeviceService {
 
-    public int OpenLock();
+    int openLock();
 
-    public int CloseLock();
+    int closeLock();
 
-    public int OpenTrunkLock();
+    int openTrunkLock();
 
-    public int CloseTrunkLock();
+    int closeTrunkLock();
     /*
         获取BMS出厂信息
      */
-    public Bms getBMS() throws DeviceServiceException;
+    Bms getBMS() throws DeviceServiceException;
     /*
         获取中央控制器出厂信息
      */
-    public Ecu getECU() throws DeviceServiceException;
+    Ecu getECU() throws DeviceServiceException;
     /*
         获取控制器出厂信息
      */
-    public Mcu getMCU() throws DeviceServiceException;
+    Mcu getMCU() throws DeviceServiceException;
 
-    public List<String> setBatteryIds(List<String> batteryIds) throws DeviceServiceException;
+    List<String> setBatteryIds(List<String> batteryIds) throws DeviceServiceException;
 
-    public List<String> getBatteryIds() throws DeviceServiceException;
+    List<String> getBatteryIds() throws DeviceServiceException;
     /*
     主动获取定时上报数据
      */
-    public ReportMessage getReport() throws DeviceServiceException;
+    ReportMessage getReport() throws DeviceServiceException;
 
-    public ObdMessage getOBD(ObdItemEnum obdItemEnum) throws DeviceServiceException;
+    ObdMessage getOBD(ObdItemEnum obdItemEnum) throws DeviceServiceException;
 
     /**
      *
      * @param msg 信息
-     * @param rfidBindingListener
+     * @param rfidBindingListener rfid绑定
      * @param timeout 超时时间  单位ms
-     * @return
+     * @return 结果
      */
-    public boolean bindingRfid(RfidMessage msg, RfidBindingListener rfidBindingListener,int timeout);
-
-
+    boolean bindingRfid(RfidMessage msg, RfidBindingListener rfidBindingListener,int timeout);
 
     }
