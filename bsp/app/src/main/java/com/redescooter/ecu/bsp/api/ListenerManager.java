@@ -51,9 +51,6 @@ public class ListenerManager {
         this.listener = null;
     }
 
-
-
-
     public void bluetoothMatchingListener(){
         BluetoothMatchingListener bluetoothMatchingListener = (BluetoothMatchingListener)listener;
         List<BleScanMessage> uuid= new ArrayList();

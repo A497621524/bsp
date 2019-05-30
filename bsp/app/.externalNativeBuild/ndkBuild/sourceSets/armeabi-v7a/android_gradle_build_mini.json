@@ -1,0 +1,17 @@
+{
+  "buildFiles": [
+    "D:\\Android\\Android\\bsp\\ses-android-bsp\\bsp\\app\\src\\main\\jni\\Android.mk",
+    "D:\\Android\\Android\\bsp\\ses-android-bsp\\bsp\\app\\src\\main\\jni\\Application.mk"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\49762\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dD:\\Android\\Android\\bsp\\ses-android-bsp\\bsp\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dD:\\Android\\Android\\bsp\\ses-android-bsp\\bsp\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-18 NDK_OUT\u003dD:/Android/Android/bsp/ses-android-bsp/bsp/app/build/intermediates/ndkBuild/sourceSets/obj NDK_LIBS_OUT\u003dD:\\Android\\Android\\bsp\\ses-android-bsp\\bsp\\app\\build\\intermediates\\ndkBuild\\sourceSets\\lib clean"
+  ],
+  "libraries": {
+    "serial_port-sourceSets-armeabi-v7a": {
+      "artifactName": "serial_port",
+      "buildCommand": "C:\\Users\\49762\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dD:\\Android\\Android\\bsp\\ses-android-bsp\\bsp\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dD:\\Android\\Android\\bsp\\ses-android-bsp\\bsp\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-18 NDK_OUT\u003dD:/Android/Android/bsp/ses-android-bsp/bsp/app/build/intermediates/ndkBuild/sourceSets/obj NDK_LIBS_OUT\u003dD:\\Android\\Android\\bsp\\ses-android-bsp\\bsp\\app\\build\\intermediates\\ndkBuild\\sourceSets\\lib D:/Android/Android/bsp/ses-android-bsp/bsp/app/build/intermediates/ndkBuild/sourceSets/obj/local/armeabi-v7a/libserial_port.so",
+      "abi": "armeabi-v7a",
+      "output": "D:\\Android\\Android\\bsp\\ses-android-bsp\\bsp\\app\\build\\intermediates\\ndkBuild\\sourceSets\\obj\\local\\armeabi-v7a\\libserial_port.so"
+    }
+  }
+}

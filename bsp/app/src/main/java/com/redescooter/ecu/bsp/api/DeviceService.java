@@ -13,11 +13,9 @@ import com.redescooter.ecu.bsp.api.model.RfidMessage;
 
 import java.util.List;
 
-/*
-    所有通信超时时间为500ms
-    所有接口不做重试，一次成功失败
-
-
+/**
+ * 所有通信超时时间为500ms
+ * 所有接口不做重试，一次成功失败
  */
 public interface DeviceService {
 
