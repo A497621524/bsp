@@ -7,4 +7,12 @@ public class Bms {
     private List<String> batteryIds;
 
 
+    public List<String> getBatteryIds() {
+        return batteryIds;
+    }
+
+    public void setBatteryIds(List<String> batteryIds) {
+        this.batteryIds = batteryIds;
+    }
+
 }

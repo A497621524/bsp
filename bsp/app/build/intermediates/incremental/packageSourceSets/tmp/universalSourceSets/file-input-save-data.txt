@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Thu May 16 13:32:25 CST 2019
-0.baseType=DIRECTORY
-0.base=D\:\\Android\\Android\\bsp\\ses-android-bsp\\bsp\\app\\build\\intermediates\\transforms\\dexMerger\\sourceSets\\0
-0.path=classes.dex
-0.set=DEX
-count=1

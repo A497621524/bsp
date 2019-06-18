@@ -6,7 +6,7 @@ package com.redescooter.ecu.bsp.api.listener;
 public interface RfidBindingListener extends AbsListener{
     /**
      *
-     * @param Rfid
+     * @param rfid
      * @param key
      */
     void handle(String rfid,String key);

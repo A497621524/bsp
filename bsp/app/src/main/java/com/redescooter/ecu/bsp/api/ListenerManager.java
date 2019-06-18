@@ -24,6 +24,7 @@ import com.redescooter.ecu.bsp.api.model.MeterMessage;
 import com.redescooter.ecu.bsp.api.model.ObdMessage;
 import com.redescooter.ecu.bsp.api.model.ReportMessage;
 import com.redescooter.ecu.bsp.api.model.RfidMessage;
+import com.redescooter.ecu.bsp.api.serial.SerialPortUtil;
 import com.redescooter.ecu.bsp.exception.DeviceServiceException;
 
 import java.io.File;
@@ -42,60 +43,93 @@ public class ListenerManager {
 
 
     private AbsListener listener;
+    private static BluetoothMatchingListener bluetoothMatchingListener;
+    private static BmsExchangeListener bmsExchangeListener;
+    private static EventListener eventListener;
+    private static FaultReportListener faultReportListener;
+    private static MeterListener meterListener;
+    private static RfidBindingListener rfidBindingListener;
+    private static RfidOperationListener rfidOperationListener;
+    private static TimerReportListener timerReportListener;
 
-    public void register(AbsListener listener){
+    /***
+     * 绑定对应的接口
+     */
+    public void registerAbs(AbsListener listener){
         this.listener = listener;
     }
-
-    public void unregiste(AbsListener listener){
-        this.listener = null;
+    public void registerBluetoothMatching(BluetoothMatchingListener listener){
+        this.bluetoothMatchingListener = listener;
+    }
+    public void registerBmsExchange(BmsExchangeListener listener){
+        this.bmsExchangeListener = listener;
+    }
+    public void registerEvent(EventListener listener){
+        this.eventListener = listener;
+    }
+    public void registerFaultReport(FaultReportListener listener){
+        this.faultReportListener = listener;
+    }
+    public void registerMeter(MeterListener listener){
+        this.meterListener = listener;
+    }
+    public void registerRfidBinding(RfidBindingListener listener){
+        this.rfidBindingListener = listener;
+    }
+    public void registerRfidOperation(RfidOperationListener listener){
+        this.rfidOperationListener = listener;
+    }
+    public void registerTimerReport(TimerReportListener listener){
+        this.timerReportListener = listener;
     }
 
-    public void bluetoothMatchingListener(){
-        BluetoothMatchingListener bluetoothMatchingListener = (BluetoothMatchingListener)listener;
-        List<BleScanMessage> uuid= new ArrayList();
+    /**
+     * 解绑对应的接口
+     */
+    public void unregisteAbs(AbsListener listener){ this.listener = null; }
+    public void unregisteBluetoothMatching(AbsListener listener){ this.bluetoothMatchingListener = null; }
+    public void unregisteBmsExchange(AbsListener listener){ this.bmsExchangeListener = null; }
+    public void unregisteEvent(AbsListener listener){ this.eventListener = null; }
+    public void unregisteFaultReport(AbsListener listener){ this.faultReportListener = null; }
+    public void unregisteMeter(AbsListener listener){ this.meterListener = null; }
+    public void unregisteRfidBinding(AbsListener listener){ this.rfidBindingListener = null; }
+    public void unregisteRfidOperation(AbsListener listener){ this.rfidOperationListener = null; }
+    public void unregisteTimerReport(AbsListener listener){ this.timerReportListener = null; }
+
+    /**
+     * 数据写入接口
+     */
+    public void bluetoothMatchingListener(List<BleScanMessage> uuid){
         uuid.add(0,new BleScanMessage("3876543",80));
         uuid.add(1,new BleScanMessage("3546765",50));
         bluetoothMatchingListener.handle(uuid);
     }
 
-    public void bmsExchangeListener(){
-        BmsExchangeListener bmsExchangeListener = (BmsExchangeListener)listener;
-        BmsExchangeMessage msg = new BmsExchangeMessage();
+    public void bmsExchangeListener(BmsExchangeMessage msg){
         bmsExchangeListener.handle(msg);
     }
 
     public void eventListener(){
-        EventListener EventListener = (EventListener)listener;
-        EventListener.handle("RFID","开锁");
+        eventListener.handle("RFID","开锁");
     }
 
-    public void faultReportListener(){
-        FaultReportListener faultReportListener = (FaultReportListener)listener;
-        ObdMessage msg = new ObdMessage();
+    public void faultReportListener(ObdMessage msg){
         faultReportListener.handle(msg);
     }
 
-    public void meterListener(){
-        MeterListener meterListener = (MeterListener)listener;
-        MeterMessage msg = new MeterMessage();
+    public void meterListener(MeterMessage msg){
         meterListener.handle(msg);
     }
 
     public void rfidBindingListener(){
-        RfidBindingListener rfidBindingListener = (RfidBindingListener)listener;
         rfidBindingListener.handle("53456342","312432");
     }
 
     public void rfidOperationListener(){
-        RfidOperationListener rfidOperationListener = (RfidOperationListener)listener;
         rfidOperationListener.handle("345342","0987654");
     }
 
-    
-    public void timerReportListener(){
-        TimerReportListener timerReportListener = (TimerReportListener)listener;
-        ReportMessage msg = new ReportMessage();
+    public void timerReportListener(ReportMessage msg){
         timerReportListener.handle(msg);
     }
 

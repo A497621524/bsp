@@ -4,66 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <Button
-        android:id="@+id/BluetoothMatchingListener"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BluetoothMatchingListener"
-        android:onClick="onClick"
-        android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/BmsExchangeListener"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BmsExchangeListener"
-        android:onClick="onClick"
-        android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/EventListener"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="EventListener"
-        android:onClick="onClick"
-        android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/FaultReportListener"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FaultReportListener"
-        android:onClick="onClick"
-        android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/MeterListener"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MeterListener"
-        android:onClick="onClick"
-        android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/RfidBindingListener"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RfidBindingListener"
-        android:onClick="onClick"
-        android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/RfidOperationListener"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RfidOperationListener"
-        android:onClick="onClick"
-        android:textAllCaps="false"/>
-    <Button
-        android:id="@+id/TimerReportListener"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TimerReportListener"
-        android:onClick="onClick"
-        android:textAllCaps="false"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:onClick="test"/>
 
 
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.redescooter.ecu.bsp.api.DeviceService;
 import com.redescooter.ecu.bsp.api.DeviceServiceTool;
 import com.redescooter.ecu.bsp.api.ListenerManager;
@@ -30,72 +31,43 @@ import com.redescooter.ecu.bsp.api.model.MeterMessage;
 import com.redescooter.ecu.bsp.api.model.ObdMessage;
 import com.redescooter.ecu.bsp.api.model.ReportMessage;
 import com.redescooter.ecu.bsp.api.model.RfidMessage;
+import com.redescooter.ecu.bsp.api.serial.DataBean;
+import com.redescooter.ecu.bsp.api.serial.SerialPortUtil;
 import com.redescooter.ecu.bsp.exception.DeviceServiceException;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import android_serialport_api.SerialPort;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    private ListenerManager BluetoothMatchingListener = new ListenerManager();
-    private ListenerManager BmsExchangeListener = new ListenerManager();
-    private ListenerManager EventListener = new ListenerManager();
-    private ListenerManager FaultReportListener = new ListenerManager();
-    private ListenerManager MeterListener = new ListenerManager();
-    private ListenerManager RfidBindingListener = new ListenerManager();
-    private ListenerManager RfidOperationListener = new ListenerManager();
-    private ListenerManager TimerReportListener = new ListenerManager();
 
     private Toast toast;
-    private Thread receiveThread;
-    private Thread sendThread;
-    private SerialPort mSerialPort;
-    private InputStream mInputStream;
-    private OutputStream mOutputStream;
-    private Handler handler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
-            if (msg.what == 1) {                  //接收
-                String data = (String)msg.obj;
-                if (data != null) {
-//                    receiveinfo += "\n" + data;
-//                    receivedata.setText(receiveinfo);
-                    Log.e(TAG, "接受的数据" + data);
-                    showTip(data);
-                }
-            }
-            if (msg.what == 2){                   //发送
-                String data = (String)msg.obj;
-//                showTip("发送成功");
-//                sendArea.setText("");
-//                if (data != null) {
-//                    sendinfo += "\n" + data;
-//                    senddata.setText(sendinfo);
-//                }
-                Log.e(TAG, "发送的数据" + data);
-            }
-            if (msg.what == 3){
-                showTip("发送失败");
-            }
+    private SerialPortUtil serialPortUtil;
 
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toast = Toast.makeText(this, "启动成功", Toast.LENGTH_SHORT);
+        serialPortUtil = SerialPortUtil.getSerialPortUtil(); //获得串口收发的对象
 
-        Listener();
-        Device();
-
-        openSerial();
+//        Device();//测试用
+        ListenerManager listenerManager = new ListenerManager(); //测试串口收到数据后能后推过来
+        listenerManager.registerMeter(new MeterListener() {
+            @Override
+            public void handle(MeterMessage msg) {
+                Log.e(TAG, "MainMeterMessage" + msg.toString());
+            }
+        });
     }
 
 
@@ -136,176 +108,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void Listener(){
-        BluetoothMatchingListener.register(new BluetoothMatchingListener() {
-            @Override
-            public int handle(List<BleScanMessage> uuid) {
-                Log.i(TAG, "handle: " + uuid.toString());
-                return 0;
-            }
-        });
-
-        BmsExchangeListener.register(new BmsExchangeListener() {
-            @Override
-            public void handle(BmsExchangeMessage msg) {
-                Log.i(TAG, "handle: " + msg.hashCode());
-            }
-        });
-
-        EventListener.register(new EventListener() {
-
-            @Override
-            public void handle(String from, String event) {
-                Log.i(TAG, "from=" + from + " event=" + event);
-            }
-        });
-
-        FaultReportListener.register(new FaultReportListener() {
-
-            @Override
-            public void handle(ObdMessage msg) {
-                Log.i(TAG, "handle: " + msg.hashCode());
-            }
-        });
-
-        MeterListener.register(new MeterListener() {
-            @Override
-            public void handle(MeterMessage msg) {
-                Log.i(TAG, "handle: " + msg.hashCode());
-            }
-
-        });
-
-        RfidBindingListener.register(new RfidBindingListener() {
-            @Override
-            public void handle(String rfid, String key) {
-                Log.i(TAG, "Rfid=" + rfid + " key=" + key);
-            }
-        });
-
-        RfidOperationListener.register(new RfidOperationListener() {
-            @Override
-            public boolean handle(String rfid, String key) {
-                Log.i(TAG, "Rfid=" + rfid + " key=" + key);
-                return false;
-            }
-        });
-
-        TimerReportListener.register(new TimerReportListener() {
-            @Override
-            public void handle(ReportMessage msg) {
-                Log.i(TAG, "handle: " + msg.hashCode());
-            }
-        });
-    }
-
-    public void onClick(View v){
-            switch (v.getId()){
-                case R.id.BluetoothMatchingListener:
-                    BluetoothMatchingListener.bluetoothMatchingListener();
-                    break;
-                case R.id.BmsExchangeListener:
-                    BmsExchangeListener.bmsExchangeListener();
-                    break;
-                case R.id.EventListener:
-                    EventListener.eventListener();
-                    break;
-                case R.id.FaultReportListener:
-                    FaultReportListener.faultReportListener();
-                    break;
-                case R.id.MeterListener:
-                    MeterListener.meterListener();
-                    break;
-                case R.id.RfidBindingListener:
-                    RfidBindingListener.rfidBindingListener();
-                    break;
-                case R.id.RfidOperationListener:
-                    RfidOperationListener.rfidOperationListener();
-                    break;
-                case R.id.TimerReportListener:
-                    TimerReportListener.timerReportListener();
-                    break;
-            }
-    }
-
-    private void openSerial() {
-// 打开
-        try {
-            mSerialPort = new SerialPort(new File("/dev/ttyMT0"), 115200, 0);
-            mInputStream = mSerialPort.getInputStream();
-            mOutputStream = mSerialPort.getOutputStream();
-            receiveThread();
-            showTip("串口0打开成功");
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            showTip("串口0打开失败");
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * 开启串口
-     */
-    private void receiveThread() {
-        // 接收
-        receiveThread = new Thread() {
+    public void test(View v){
+        new Thread(){
             @Override
             public void run() {
-                while (true) {
-                    int size;
-                    try {
-                        byte[] buffer = new byte[1024];
-                        if (mInputStream == null)
-                            return;
-                        size = mInputStream.read(buffer);
-                        if (size > 0) {
-                            String recinfo = new String(buffer, 0,
-                                    size);
-                            Log.i("TAG", "接收到串口信息:" + recinfo);
-                            Message msg = new Message();
-                            msg.what = 1;
-                            msg.obj = recinfo;
-                            handler.sendMessage(msg);
-//                            sb = recinfo;
-//                            handler.sendEmptyMessage(1);
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+                super.run();
+                serialPortUtil.sendSerialPort("串口"); //测试发送
             }
-        };
-        receiveThread.start();
+        }.start();
     }
+
+
 
     /**
-     * 关闭串口
+     * 信息提示
+     * @param str 弹出的信息
      */
-    public void closeSerialPort() {
-
-        if (mSerialPort != null) {
-            mSerialPort.close();
-        }
-        if (mInputStream != null) {
-            try {
-                mInputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        if (mOutputStream != null) {
-            try {
-                mOutputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
     private void showTip(final String str) {
         toast.setText(str);
         toast.show();
     }
+
 
 }

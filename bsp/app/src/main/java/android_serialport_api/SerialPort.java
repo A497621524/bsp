@@ -60,6 +60,12 @@ public class SerialPort {
 
 
     // JNI(调用java本地接口，实现串口的打开和关闭)
+    /**
+     *
+     * @param path 要打开的串口的绝对路径
+     * @param baudrate  串口的波特率
+     * @param flags     是否有校验位
+     */
     private native static FileDescriptor open(String path, int baudrate, int flags);
     public native void close();
 

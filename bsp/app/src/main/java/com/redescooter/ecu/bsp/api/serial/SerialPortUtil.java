@@ -1,145 +1,319 @@
 package com.redescooter.ecu.bsp.api.serial;
 
+import android.databinding.adapters.ListenerUtil;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
+
+import com.google.gson.Gson;
+import com.redescooter.ecu.bsp.api.ListenerManager;
+import com.redescooter.ecu.bsp.api.listener.BluetoothMatchingListener;
+import com.redescooter.ecu.bsp.api.listener.BmsExchangeListener;
+import com.redescooter.ecu.bsp.api.listener.EventListener;
+import com.redescooter.ecu.bsp.api.listener.FaultReportListener;
+import com.redescooter.ecu.bsp.api.listener.MeterListener;
+import com.redescooter.ecu.bsp.api.listener.RfidBindingListener;
+import com.redescooter.ecu.bsp.api.listener.RfidOperationListener;
+import com.redescooter.ecu.bsp.api.listener.TimerReportListener;
+import com.redescooter.ecu.bsp.api.model.BleScanMessage;
+import com.redescooter.ecu.bsp.api.model.Bms;
+import com.redescooter.ecu.bsp.api.model.BmsExchangeMessage;
+import com.redescooter.ecu.bsp.api.model.Ecu;
+import com.redescooter.ecu.bsp.api.model.Mcu;
+import com.redescooter.ecu.bsp.api.model.MeterMessage;
+import com.redescooter.ecu.bsp.api.model.ObdMessage;
+import com.redescooter.ecu.bsp.api.model.ReportMessage;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import android_serialport_api.SerialPort;
 
 public class SerialPortUtil {
-    private final String TAG = "SerialPortUtils";
-    private String path = "/dev/ttyS1";
+    private final String TAG = "SerialPortUtil";
+    private String path = "/dev/ttyMT0";
     private int baudrate = 115200;
-    public boolean serialPortStatus = false; //是否打开串口标志
-    public String data_;
-    public boolean threadStatus; //线程状态，为了安全终止线程
 
-    public SerialPort serialPort = null;
-    public InputStream inputStream = null;
-    public OutputStream outputStream = null;
+    private Thread receiveThread;
+    private Thread sendThread;
+    private SerialPort mSerialPort;
+    private InputStream mInputStream;
+    private OutputStream mOutputStream;
+    private DataBean dataBean;
 
+    private static SerialPortUtil serialPortUtil;
 
+    private ListenerManager listenerManager = new ListenerManager();//接口管理   使用接口线new 一个
 
+    public Bms bms = new Bms();
+    public Ecu ecu = new Ecu();
+    public Mcu mcu = new Mcu();
+    public MeterMessage meterMessage = new MeterMessage();
+    public ReportMessage reportMessage = new ReportMessage();
+    public int code;
+
+    private void initListener() {
+        listenerManager.registerBluetoothMatching(new BluetoothMatchingListener() {
+            @Override
+            public int handle(List<BleScanMessage> uuid) {
+                Log.i(TAG, "handle: " + uuid.toString());
+                return 0;
+            }
+        });
+        listenerManager.registerBmsExchange(new BmsExchangeListener() {
+            @Override
+            public void handle(BmsExchangeMessage msg) {
+                Log.i(TAG, "handle: " + msg.hashCode());
+
+            }
+        });
+        listenerManager.registerEvent(new EventListener() {
+            @Override
+            public void handle(String from, String event) {
+                Log.i(TAG, "from=" + from + " event=" + event);
+
+            }
+        });
+        listenerManager.registerFaultReport(new FaultReportListener() {
+            @Override
+            public void handle(ObdMessage msg) {
+                Log.i(TAG, "handle: " + msg.hashCode());
+
+            }
+        });
+        listenerManager.registerRfidOperation(new RfidOperationListener() {
+            @Override
+            public boolean handle(String rfid, String key) {
+                Log.i(TAG, "Rfid=" + rfid + " key=" + key);
+                return false;
+            }
+        });
+        listenerManager.registerRfidBinding(new RfidBindingListener() {
+            @Override
+            public void handle(String rfid, String key) {
+                Log.i(TAG, "Rfid=" + rfid + " key=" + key);
+            }
+        });
+        listenerManager.registerTimerReport(new TimerReportListener() {
+            @Override
+            public void handle(ReportMessage msg) {
+                Log.i(TAG, "handle: " + msg.hashCode());
+
+            }
+        });
+        listenerManager.registerMeter(new MeterListener() {
+            @Override
+            public void handle(MeterMessage msg) {
+                Log.e(TAG, "MeterMessage: " + msg.toString());
+            }
+        });
+    }
+
+    public Handler serialHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 1:
+                    String data = (String)msg.obj;
+                    Log.e(TAG, "data： " + data);
+                    Gson gson = new Gson();
+                    dataBean = gson.fromJson(data,DataBean.class);
+
+                    if (dataBean.getAction().equals("meter")){
+                        serialHandler.sendEmptyMessage(20);
+                    }
+                    if (dataBean.getAction().equals("timerData")){
+                        serialHandler.sendEmptyMessage(21);
+                    }
+                    if (dataBean.getAction().equals("notice")){
+                        serialHandler.sendEmptyMessage(22);
+                    }
+                    if (dataBean.getAction().equals("bms")){
+                        serialHandler.sendEmptyMessage(23);
+                    }
+                    break;
+                case 20://仪表信息
+                    code = dataBean.getCode();
+                    meterMessage.setAmbientTemperature(dataBean.getdata().getAmbientTemperature());
+                    meterMessage.setBattery(dataBean.getdata().getBattery());
+                    meterMessage.setClimbingAngle(dataBean.getdata().getClimbingAngle());
+                    meterMessage.setSingleMileage(dataBean.getdata().getSingleMileage());
+                    meterMessage.setSpeed(dataBean.getdata().getSpeed());
+                    meterMessage.setTorque(dataBean.getdata().getTorque());
+                    meterMessage.setTotalMileage(dataBean.getdata().getTotalMileage());
+                    listenerManager.meterListener(meterMessage);
+                    Log.e(TAG, "仪表数据: " + meterMessage.toString());
+                    break;
+                case 21://定时上报
+                    reportMessage.setBatteryCompartmentLockStatus(dataBean.getdata().getBatteryCompartmentLockStatus());
+                    reportMessage.setBatteryTemperature(dataBean.getdata().getBatteryTemperature());
+                    reportMessage.setCapacity(dataBean.getdata().getCapacity());
+                    reportMessage.setClimbingAngle(dataBean.getdata().getClimbingAngle());
+                    reportMessage.setCurrent(dataBean.getdata().getCurrent());
+                    reportMessage.setExternalTemperature(dataBean.getdata().getExternalTemperature());
+                    reportMessage.getGps().setGPGGA(dataBean.getdata().getGps().getGPGGA());
+                    reportMessage.getGps().setGPGLL(dataBean.getdata().getGps().getGPGLL());
+                    reportMessage.getGps().setGPGSA(dataBean.getdata().getGps().getGPGSA());
+                    reportMessage.getGps().setGPGSV(dataBean.getdata().getGps().getGPGSV());
+                    reportMessage.getGps().setGPRMC(dataBean.getdata().getGps().getGPRMC());
+                    reportMessage.setInclinationAngle(dataBean.getdata().getTotalMileage());
+                    reportMessage.setLockStatus(dataBean.getdata().getLockStatus());
+                    reportMessage.setMotorSpeed(dataBean.getdata().getMotorSpeed());
+                    reportMessage.setSingleMileage(dataBean.getdata().getSingleMileage());
+                    reportMessage.setSpeed(dataBean.getdata().getSpeed());
+                    reportMessage.setTorsion(dataBean.getdata().getTotalMileage());
+                    reportMessage.setTrunkLockStatus(dataBean.getdata().getTrunkLockStatus());
+                    reportMessage.setTrunkTemperature(dataBean.getdata().getTrunkTemperature());
+                    reportMessage.setVoltage(dataBean.getdata().getVoltage());
+                    listenerManager.timerReportListener(reportMessage);
+                    Log.e(TAG, "定时上报数据: " + reportMessage.toString());
+                    break;
+                case 22://notice
+
+                    break;
+                case 23://bms
+                    bms.setBatteryIds(dataBean.getdata().getBatteryIds());
+                    break;
+            }
+        }
+    };
 
 
     /**
      * 打开串口
-     * @return serialPort串口对象
      */
-    public SerialPort openSerialPort(){
+    private void openSerial() {
+        initListener();//注册接口
         try {
-            serialPort = new SerialPort(new File(path),baudrate,0);
-            this.serialPortStatus = true;
-            threadStatus = false; //线程状态
+            mSerialPort = new SerialPort(new File(path), baudrate, 0);
+            mInputStream = mSerialPort.getInputStream();
+            mOutputStream = mSerialPort.getOutputStream();
+            receiveThread();
+            Log.e(TAG,"串口0打开成功");
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            Log.e(TAG, "打开串口0异常：" + e.toString());
 
-            //获取打开的串口中的输入输出流，以便于串口数据的收发
-            inputStream = serialPort.getInputStream();
-            outputStream = serialPort.getOutputStream();
-
-            new ReadThread().start(); //开始线程监控是否有数据要接收
         } catch (IOException e) {
-            Log.e(TAG, "openSerialPort: 打开串口异常：" + e.toString());
-            return serialPort;
+            e.printStackTrace();
+            Log.e(TAG, "打开串口0异常：" + e.toString());
+
         }
-        Log.d(TAG, "openSerialPort: 打开串口");
-        return serialPort;
+
+
+
     }
 
     /**
-     * 关闭串口
+     * 接收串口数据
      */
-    public void closeSerialPort(){
-        try {
-            inputStream.close();
-            outputStream.close();
-
-            this.serialPortStatus = false;
-            this.threadStatus = true; //线程状态
-            serialPort.close();
-        } catch (IOException e) {
-            Log.e(TAG, "closeSerialPort: 关闭串口异常："+e.toString());
-            return;
-        }
-        Log.d(TAG, "closeSerialPort: 关闭串口成功");
+    private void receiveThread() {
+        // 接收
+        receiveThread = new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    int size;
+                    try {
+                        byte[] buffer = new byte[1024];
+                        if (mInputStream == null)
+                            return;
+                        size = mInputStream.read(buffer);
+                        if (size > 0) {
+                            int j = 0;
+                            for (int i = 0;i < buffer.length;i++){
+                                if (buffer[i + 1] != 0){
+                                    j++;
+                                }else {
+                                    break;
+                                }
+                            }
+                            byte[] bytes = new byte[j];
+                            for (int i = 0;i < j;i++){
+                                bytes[i] = buffer[i];
+                            }
+                            String recinfo = new String(bytes,"GBK");
+                            Message msg = new Message();
+                            msg.what = 1;
+                            msg.obj = recinfo;
+                            serialHandler.sendMessage(msg);
+//                            handler.sendMessage(msg);
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        receiveThread.start();
     }
+
 
     /**
      * 发送串口指令（字符串）
      * @param data String数据指令
      */
-    public void sendSerialPort(String data){
-        Log.d(TAG, "sendSerialPort: 发送数据");
-
-        try {
-            byte[] sendData = data.getBytes(); //string转byte[]
-            this.data_ = new String(sendData); //byte[]转string
-            if (sendData.length > 0) {
-                outputStream.write(sendData);
-                outputStream.write('\n');
-                //outputStream.write('\r'+'\n');
-                outputStream.flush();
-                Log.d(TAG, "sendSerialPort: 串口数据发送成功");
+    public void sendSerialPort(final String data){
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                Log.e(TAG, "sendSerialPort: 发送数据: " + Arrays.toString(data.getBytes()));
+                try {
+                    if (data.length() > 0) {
+                        mOutputStream.write(data.getBytes());
+                        mOutputStream.flush();
+                        Log.e(TAG, "sendSerialPort: 串口数据发送成功: " + data);
+                    }
+                } catch (IOException e) {
+                    Log.e(TAG, "sendSerialPort: 串口数据发送失败："+e.toString());
+                }
             }
-        } catch (IOException e) {
-            Log.e(TAG, "sendSerialPort: 串口数据发送失败："+e.toString());
-        }
+        }.start();
+
 
     }
 
     /**
-     * 单开一线程，来读数据
+     * 关闭串口
      */
-    private class ReadThread extends Thread{
-        @Override
-        public void run() {
-            super.run();
-            //判断进程是否在运行，更安全的结束进程
-            while (!threadStatus){
-                Log.d(TAG, "进入线程run");
-                //64   1024
-                byte[] buffer = new byte[64];
-                int size; //读取数据的大小
-                try {
-                    size = inputStream.read(buffer);
-                    if (size > 0){
-                        Log.d(TAG, "run: 接收到了数据：" + bytesToHex(buffer,0,buffer.length));
-                        Log.d(TAG, "run: 接收到了数据大小：" + String.valueOf(size));
-                        onDataReceiveListener.onDataReceive(buffer,size);
-                    }
-                } catch (IOException e) {
-                    Log.e(TAG, "run: 数据读取异常：" +e.toString());
-                }
+    public void closeSerialPort() {
+
+        if (mSerialPort != null) {
+            mSerialPort.close();
+        }
+        if (mInputStream != null) {
+            try {
+                mInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
         }
-    }
-
-    //这是写了一监听器来监听接收数据
-    public OnDataReceiveListener onDataReceiveListener = null;
-    public static interface OnDataReceiveListener {
-        public void onDataReceive(byte[] buffer, int size);
-    }
-    public void setOnDataReceiveListener(OnDataReceiveListener dataReceiveListener) {
-        onDataReceiveListener = dataReceiveListener;
-    }
-
-    private List<String> bytesToHex(byte[] bytes, int begin, int end) {
-        List<String> list = new ArrayList<String>();
-        StringBuilder hexBuilder = new StringBuilder();
-        for (int i = begin; i < end; i++) {
-            hexBuilder.append(Character.forDigit((bytes[i] & 0xF0) >> 4, 16)); // 转化高四位
-            hexBuilder.append(Character.forDigit((bytes[i] & 0x0F), 16)); // 转化低四位
-            list.add(hexBuilder.toString());
-            hexBuilder.delete(0, 2);
+        if (mOutputStream != null) {
+            try {
+                mOutputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return list;
+
     }
+
+    public static SerialPortUtil getSerialPortUtil(){
+        if (serialPortUtil == null) {
+            serialPortUtil = new SerialPortUtil();
+            serialPortUtil.openSerial();
+        }
+        return serialPortUtil;
+    }
+
+
 
 
 
