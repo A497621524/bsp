@@ -2,7 +2,9 @@ package com.redescooter.ecu.bsp.exception;
 
 import android.os.Message;
 
-public class DeviceServiceException extends Exception {
+import java.io.IOException;
+
+public class DeviceServiceException extends IOException {
 
     private String Code;
     private String Msg;

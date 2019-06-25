@@ -157,10 +157,35 @@ public class DataBean {
          */
         private double motorSpeed;
 
+
+
         /**
          * bms
+
          */
         private List<String> batteryIds;
+
+        /**
+         * 异步接口
+         *      来自哪里
+         */
+        private String from;
+
+        /**
+         * 异步接口
+         *      行为
+         */
+        private String event;
+
+        /**
+         * RFID id号
+         */
+        private String rfid;
+
+        /**
+         * 内容
+         */
+        private String key;
 
 
         public float getSpeed() {
@@ -409,7 +434,37 @@ public class DataBean {
             this.batteryIds = batteryIds;
         }
 
+        public String getFrom() {
+            return from;
+        }
 
+        public void setFrom(String from) {
+            this.from = from;
+        }
+
+        public String getEvent() {
+            return event;
+        }
+
+        public void setEvent(String event) {
+            this.event = event;
+        }
+
+        public String getRfid() {
+            return rfid;
+        }
+
+        public void setRfid(String rfid) {
+            this.rfid = rfid;
+        }
+
+        public String getKey() {
+            return key;
+        }
+
+        public void setKey(String key) {
+            this.key = key;
+        }
 
         @Override
         public String toString() {
@@ -421,6 +476,7 @@ public class DataBean {
                     ", ambientTemperature=" + ambientTemperature +
                     ", torque=" + torque +
                     ", climbingAngle=" + climbingAngle +
+                    ", time='" + time + '\'' +
                     ", lockStatus=" + lockStatus +
                     ", trunkLockStatus=" + trunkLockStatus +
                     ", trunkTemperature=" + trunkTemperature +
@@ -434,6 +490,11 @@ public class DataBean {
                     ", batteryTemperature=" + batteryTemperature +
                     ", externalTemperature=" + externalTemperature +
                     ", motorSpeed=" + motorSpeed +
+                    ", batteryIds=" + batteryIds +
+                    ", from='" + from + '\'' +
+                    ", event='" + event + '\'' +
+                    ", rfid='" + rfid + '\'' +
+                    ", key='" + key + '\'' +
                     '}';
         }
     }

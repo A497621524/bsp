@@ -15,4 +15,12 @@ public class BleScanMessage {
         this.uuid = uuid;
         this.rssi = rssi;
     }
+
+    @Override
+    public String toString() {
+        return "BleScanMessage{" +
+                "uuid='" + uuid + '\'' +
+                ", rssi=" + rssi +
+                '}';
+    }
 }

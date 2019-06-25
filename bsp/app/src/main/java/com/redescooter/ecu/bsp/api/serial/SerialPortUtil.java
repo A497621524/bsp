@@ -1,6 +1,6 @@
 package com.redescooter.ecu.bsp.api.serial;
 
-import android.databinding.adapters.ListenerUtil;
+import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -12,7 +12,6 @@ import com.redescooter.ecu.bsp.api.listener.BmsExchangeListener;
 import com.redescooter.ecu.bsp.api.listener.EventListener;
 import com.redescooter.ecu.bsp.api.listener.FaultReportListener;
 import com.redescooter.ecu.bsp.api.listener.MeterListener;
-import com.redescooter.ecu.bsp.api.listener.RfidBindingListener;
 import com.redescooter.ecu.bsp.api.listener.RfidOperationListener;
 import com.redescooter.ecu.bsp.api.listener.TimerReportListener;
 import com.redescooter.ecu.bsp.api.model.BleScanMessage;
@@ -28,7 +27,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,8 +34,8 @@ import android_serialport_api.SerialPort;
 
 public class SerialPortUtil {
     private final String TAG = "SerialPortUtil";
-    private String path = "/dev/ttyMT0";
-    private int baudrate = 115200;
+    private String path = "/dev/ttyMT0";//绝对地址
+    private int baudrate = 115200;//波特率
 
     private Thread receiveThread;
     private Thread sendThread;
@@ -45,10 +43,11 @@ public class SerialPortUtil {
     private InputStream mInputStream;
     private OutputStream mOutputStream;
     private DataBean dataBean;
+    private Context context;
 
-    private static SerialPortUtil serialPortUtil;
+    private volatile static SerialPortUtil serialPortUtil;
 
-    private ListenerManager listenerManager = new ListenerManager();//接口管理   使用接口线new 一个
+    private ListenerManager listenerManager = ListenerManager.getListenerManager();//接口管理   使用接口先new 一个
 
     public Bms bms = new Bms();
     public Ecu ecu = new Ecu();
@@ -57,52 +56,49 @@ public class SerialPortUtil {
     public ReportMessage reportMessage = new ReportMessage();
     public int code;
 
-    private void initListener() {
+    public SerialPortUtil() {
+    }
+
+    public void initListener() {
         listenerManager.registerBluetoothMatching(new BluetoothMatchingListener() {
             @Override
             public int handle(List<BleScanMessage> uuid) {
-                Log.i(TAG, "handle: " + uuid.toString());
+                Log.e(TAG, "handle: " + uuid.toString());
                 return 0;
             }
         });
         listenerManager.registerBmsExchange(new BmsExchangeListener() {
             @Override
             public void handle(BmsExchangeMessage msg) {
-                Log.i(TAG, "handle: " + msg.hashCode());
+                Log.e(TAG, "handle: " + msg.hashCode());
 
             }
         });
         listenerManager.registerEvent(new EventListener() {
             @Override
             public void handle(String from, String event) {
-                Log.i(TAG, "from=" + from + " event=" + event);
+                Log.e(TAG, "from=" + from + " event=" + event);
 
             }
         });
         listenerManager.registerFaultReport(new FaultReportListener() {
             @Override
             public void handle(ObdMessage msg) {
-                Log.i(TAG, "handle: " + msg.hashCode());
+                Log.e(TAG, "handle: " + msg.hashCode());
 
             }
         });
         listenerManager.registerRfidOperation(new RfidOperationListener() {
             @Override
             public boolean handle(String rfid, String key) {
-                Log.i(TAG, "Rfid=" + rfid + " key=" + key);
-                return false;
-            }
-        });
-        listenerManager.registerRfidBinding(new RfidBindingListener() {
-            @Override
-            public void handle(String rfid, String key) {
-                Log.i(TAG, "Rfid=" + rfid + " key=" + key);
+                Log.e(TAG, "Rfid=" + rfid + " key=" + key);
+                return true;
             }
         });
         listenerManager.registerTimerReport(new TimerReportListener() {
             @Override
             public void handle(ReportMessage msg) {
-                Log.i(TAG, "handle: " + msg.hashCode());
+                Log.e(TAG, "handle: " + msg.hashCode());
 
             }
         });
@@ -137,6 +133,10 @@ public class SerialPortUtil {
                     if (dataBean.getAction().equals("bms")){
                         serialHandler.sendEmptyMessage(23);
                     }
+                    if (dataBean.getAction().equals("RFID")) {
+                        serialHandler.sendEmptyMessage(24);
+                    }
+
                     break;
                 case 20://仪表信息
                     code = dataBean.getCode();
@@ -175,10 +175,18 @@ public class SerialPortUtil {
                     Log.e(TAG, "定时上报数据: " + reportMessage.toString());
                     break;
                 case 22://notice
-
+                    listenerManager.eventListener(dataBean.getdata().getFrom(),dataBean.getdata().getEvent());
                     break;
                 case 23://bms
                     bms.setBatteryIds(dataBean.getdata().getBatteryIds());
+                    break;
+                case 24://RFID
+                    boolean sendFlag = listenerManager.rfidOperationListener(dataBean.getdata().getRfid(),dataBean.getdata().getKey());
+                    if (sendFlag){
+                        sendSerialPort("{\"action\": \"RFID\",\"code\": \"1\", \"data\": {}}");
+                    }else {
+                        sendSerialPort("{\"action\": \"RFID\",\"code\": \"-1\", \"data\": {}}");
+                    }
                     break;
             }
         }
@@ -199,11 +207,9 @@ public class SerialPortUtil {
         } catch (SecurityException e) {
             e.printStackTrace();
             Log.e(TAG, "打开串口0异常：" + e.toString());
-
         } catch (IOException e) {
             e.printStackTrace();
             Log.e(TAG, "打开串口0异常：" + e.toString());
-
         }
 
 
@@ -264,10 +270,11 @@ public class SerialPortUtil {
             @Override
             public void run() {
                 super.run();
-                Log.e(TAG, "sendSerialPort: 发送数据: " + Arrays.toString(data.getBytes()));
+                byte[] sendData = data.getBytes();
+                Log.e(TAG, "sendSerialPort: 发送数据: " + Arrays.toString(sendData));
                 try {
-                    if (data.length() > 0) {
-                        mOutputStream.write(data.getBytes());
+                    if (sendData.length > 0 && sendData != null) {
+                        mOutputStream.write(sendData);
                         mOutputStream.flush();
                         Log.e(TAG, "sendSerialPort: 串口数据发送成功: " + data);
                     }
@@ -307,10 +314,15 @@ public class SerialPortUtil {
 
     public static SerialPortUtil getSerialPortUtil(){
         if (serialPortUtil == null) {
-            serialPortUtil = new SerialPortUtil();
-            serialPortUtil.openSerial();
+            synchronized (SerialPortUtil.class) {
+                if (serialPortUtil == null) {
+                    serialPortUtil = new SerialPortUtil();
+                    serialPortUtil.openSerial();
+                }
+            }
         }
         return serialPortUtil;
+
     }
 
 

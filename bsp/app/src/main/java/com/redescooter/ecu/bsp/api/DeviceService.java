@@ -8,7 +8,6 @@ import com.redescooter.ecu.bsp.api.model.Mcu;
 import com.redescooter.ecu.bsp.exception.DeviceServiceException;
 import com.redescooter.ecu.bsp.api.model.ObdMessage;
 import com.redescooter.ecu.bsp.api.model.ReportMessage;
-import com.redescooter.ecu.bsp.api.listener.RfidBindingListener;
 import com.redescooter.ecu.bsp.api.model.RfidMessage;
 
 import java.util.List;
@@ -49,13 +48,5 @@ public interface DeviceService {
 
     ObdMessage getOBD(ObdItemEnum obdItemEnum) throws DeviceServiceException;
 
-    /**
-     *
-     * @param msg 信息
-     * @param rfidBindingListener rfid绑定
-     * @param timeout 超时时间  单位ms
-     * @return 结果
-     */
-    boolean bindingRfid(RfidMessage msg, RfidBindingListener rfidBindingListener,int timeout);
 
     }

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-20:12
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [com.android.databinding:adapters:3.2.0] C:\Users\49762\.gradle\caches\transforms-1\files-1.1\adapters-3.2.0.aar\b3cbd3af936388d892f1a73326509f78\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.databinding:library:3.2.0] C:\Users\49762\.gradle\caches\transforms-1\files-1.1\library-3.2.0.aar\3a3d302c563df5cf5330dce31ecb715a\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\49762\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\51ac4b8592f3054705be143d32389f27\AndroidManifest.xml:17:1-22:12
@@ -33,25 +33,51 @@ MERGED from [android.arch.core:runtime:1.1.1] C:\Users\49762\.gradle\caches\tran
 MERGED from [com.android.support:documentfile:28.0.0] C:\Users\49762\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\eaf23fa0f75dc63cbf1c887b431874f1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\49762\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\434bd4fdd5c38cf40cde7515656f4d7b\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:print:28.0.0] C:\Users\49762\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\8622542fad3e6410bf6c8db25f5a3d69\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-29:12
 	package
 		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml
-		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-20:12
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml
-		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-20:12
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:1-29:12
 		INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.BLUETOOTH
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:5:5-68
+	android:name
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:5:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:6:5-74
+	android:name
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:6:22-71
+uses-feature#android.hardware.location.gps
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:7:5-66
+	android:name
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:7:19-63
+uses-feature#android.hardware.bluetooth_le
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:8:5-10:35
+	android:required
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:10:9-32
+	android:name
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:9:9-53
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:11:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:12:22-78
 application
-ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:5:5-18:19
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:14:5-27:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\49762\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\e3e2a9bbd59336f89c7c1f3b25f6eba2\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\49762\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\e3e2a9bbd59336f89c7c1f3b25f6eba2\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\49762\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\e5df77164ff24fc9eaf2fea3ce897194\AndroidManifest.xml:22:5-94
@@ -61,31 +87,31 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\49762\.gra
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\49762\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\e5df77164ff24fc9eaf2fea3ce897194\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:19:9-35
 	android:label
-		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:17:9-41
 	android:roundIcon
-		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:18:9-54
 	android:icon
-		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:16:9-43
 	android:allowBackup
-		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:15:9-35
 	android:theme
-		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:11:9-40
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:20:9-40
 activity#com.redescooter.ecu.bsp.MainActivity
-ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:12:9-17:20
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:21:9-26:20
 	android:name
-		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:12:19-70
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:21:19-70
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:13:13-16:29
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:22:13-25:29
 action#android.intent.action.MAIN
-ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:14:17-69
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:14:25-66
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:15:17-77
+ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:15:27-74
+		ADDED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml:24:27-74
 uses-sdk
 INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Android\Android\bsp\ses-android-bsp\bsp\app\src\main\AndroidManifest.xml

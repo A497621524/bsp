@@ -1,7 +1,6 @@
 package com.redescooter.ecu.bsp.api;
 
 import com.redescooter.ecu.bsp.api.enums.ObdItemEnum;
-import com.redescooter.ecu.bsp.api.listener.RfidBindingListener;
 import com.redescooter.ecu.bsp.api.model.Bms;
 import com.redescooter.ecu.bsp.api.model.Ecu;
 import com.redescooter.ecu.bsp.api.model.Mcu;
@@ -77,9 +76,6 @@ public class DeviceServiceTool implements DeviceService{
         }
     }
 
-
-
-
     @Override
     public Ecu getECU() throws DeviceServiceException {
         serialPortUtil.sendSerialPort("{\"action\":\"getBMS\", \"data\":{ \"code\":\"1\"}");
@@ -124,6 +120,7 @@ public class DeviceServiceTool implements DeviceService{
     @Override
     public ReportMessage getReport() throws DeviceServiceException {
         ReportMessage reportMessage = new ReportMessage();
+        reportMessage = serialPortUtil.reportMessage;
         return reportMessage;
     }
 
@@ -131,15 +128,6 @@ public class DeviceServiceTool implements DeviceService{
     public ObdMessage getOBD(ObdItemEnum obdItemEnum) throws DeviceServiceException {
         ObdMessage obdMessage = new ObdMessage();
         return obdMessage;
-    }
-
-    @Override
-    public boolean bindingRfid(RfidMessage msg, RfidBindingListener rfidBindingListener, int timeout) {
-        String Rfid = msg.getId();
-        String key = msg.getKey();
-        int timeout1 = timeout;
-
-        return true;
     }
 
 }
