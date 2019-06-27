@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="warn" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="CMakeSettings">
@@ -40,39 +40,111 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="81" column="50" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
+            <state relative-caret-position="323">
+              <caret line="105" column="22" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/config/Config.java">
+      <file leaf-file-name="SerialPortUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/SerialPortUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="19" column="45" lean-forward="true" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceServiceException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/exception/DeviceServiceException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+            <state relative-caret-position="78">
+              <caret line="260" column="58" selection-start-line="260" selection-start-column="58" selection-end-line="260" selection-end-column="58" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#SerialPortUtil#0;class#SerialPortUtil#0" />
+                <element signature="e#2300#2522#0" expanded="true" />
+                <element signature="e#2521#2522#0" expanded="true" />
+                <element signature="e#2569#2757#0" expanded="true" />
+                <element signature="e#2756#2757#0" expanded="true" />
+                <element signature="e#2798#2990#0" expanded="true" />
+                <element signature="e#2989#2990#0" expanded="true" />
+                <element signature="e#3037#3217#0" expanded="true" />
+                <element signature="e#3216#3217#0" expanded="true" />
+                <element signature="e#3266#3492#0" expanded="true" />
+                <element signature="e#3491#3492#0" expanded="true" />
+                <element signature="e#3539#3722#0" expanded="true" />
+                <element signature="e#3721#3722#0" expanded="true" />
+                <element signature="e#3763#3944#0" expanded="true" />
+                <element signature="e#3943#3944#0" expanded="true" />
+                <element signature="e#4053#14856#0" expanded="true" />
+                <element signature="e#14855#14856#0" expanded="true" />
+                <element signature="e#12977#14439#0" expanded="true" />
+                <element signature="e#14438#14439#0" expanded="true" />
+                <element signature="e#14604#15277#0" expanded="true" />
+                <element signature="e#15276#15277#0" expanded="true" />
+                <element signature="e#18081#18082#0" expanded="true" />
+                <element signature="e#18107#18108#0" expanded="true" />
+                <element signature="e#18134#18135#0" expanded="true" />
+                <element signature="e#18160#18161#0" expanded="true" />
+                <element signature="e#18187#18188#0" expanded="true" />
+                <element signature="e#18213#18214#0" expanded="true" />
+                <element signature="e#18258#18259#0" expanded="true" />
+                <element signature="e#18293#18294#0" expanded="true" />
+                <element signature="e#18340#18341#0" expanded="true" />
+                <element signature="e#18376#18377#0" expanded="true" />
+                <element signature="e#18404#18405#0" expanded="true" />
+                <element signature="e#18431#18432#0" expanded="true" />
+                <element signature="e#18466#18467#0" expanded="true" />
+                <element signature="e#18498#18499#0" expanded="true" />
+                <element signature="e#18531#18532#0" expanded="true" />
+                <element signature="e#18561#18562#0" expanded="true" />
+                <element signature="e#18594#18595#0" expanded="true" />
+                <element signature="e#18624#18625#0" expanded="true" />
+                <element signature="e#18657#18658#0" expanded="true" />
+                <element signature="e#18687#18688#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeviceServiceTool.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Bms.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Bms.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <folding>
+                <element signature="e#167#168#0" expanded="true" />
+                <element signature="e#200#201#0" expanded="true" />
+                <element signature="e#258#259#0" expanded="true" />
+                <element signature="e#302#303#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataBean.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/DataBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="197" selection-start-line="197" selection-end-line="197" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#588#589#0" expanded="true" />
+                <element signature="e#615#616#0" expanded="true" />
+                <element signature="e#3225#3226#0" expanded="true" />
+                <element signature="e#3271#3272#0" expanded="true" />
+                <element signature="e#3460#3461#0" expanded="true" />
+                <element signature="e#3497#3498#0" expanded="true" />
+                <element signature="e#5534#5535#0" expanded="true" />
+                <element signature="e#5568#5569#0" expanded="true" />
+                <element signature="e#8799#8800#0" expanded="true" />
+                <element signature="e#8835#8836#0" expanded="true" />
+                <element signature="e#8878#8879#0" expanded="true" />
+                <element signature="e#8920#8921#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeviceServiceTool.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/DeviceServiceTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="24" column="55" lean-forward="true" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+            <state relative-caret-position="20">
+              <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
               <folding>
+                <element signature="method#DeviceServiceTool#1;class#DeviceServiceTool#0" />
+                <element signature="method#openLock#0;class#DeviceServiceTool#0" />
                 <element signature="method#closeLock#0;class#DeviceServiceTool#0" />
                 <element signature="method#openTrunkLock#0;class#DeviceServiceTool#0" />
                 <element signature="method#closeTrunkLock#0;class#DeviceServiceTool#0" />
@@ -80,70 +152,21 @@
                 <element signature="method#getECU#0;class#DeviceServiceTool#0" />
                 <element signature="method#getMCU#0;class#DeviceServiceTool#0" />
                 <element signature="method#setBatteryIds#0;class#DeviceServiceTool#0" />
+                <element signature="method#getBatteryIds#0;class#DeviceServiceTool#0" />
+                <element signature="method#getOBD#0;class#DeviceServiceTool#0" />
+                <element signature="method#delay#0;class#DeviceServiceTool#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BluetoothMatching.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/bluetoothMatching/BluetoothMatching.java">
+      <file leaf-file-name="DeviceServiceException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/exception/DeviceServiceException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="64" column="15" selection-start-line="63" selection-start-column="18" selection-end-line="64" selection-end-column="15" />
+            <state relative-caret-position="399">
+              <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1005#1006#0" expanded="true" />
-                <element signature="e#1043#1044#0" expanded="true" />
-                <element signature="e#1079#1966#0" expanded="true" />
-                <element signature="e#1965#1966#0" expanded="true" />
-                <element signature="e#2191#3869#0" expanded="true" />
-                <element signature="e#3868#3869#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SerialPortUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/SerialPortUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="94" column="27" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
-              <folding>
-                <element signature="method#SerialPortUtil#0;class#SerialPortUtil#0" />
-                <element signature="e#2382#2604#0" expanded="true" />
-                <element signature="e#2603#2604#0" expanded="true" />
-                <element signature="e#3928#8746#0" expanded="true" />
-                <element signature="e#8745#8746#0" expanded="true" />
-                <element signature="e#9469#10923#0" expanded="true" />
-                <element signature="e#10922#10923#0" expanded="true" />
-                <element signature="e#11088#11761#0" expanded="true" />
-                <element signature="e#11760#11761#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ObdItemEnum.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/enums/ObdItemEnum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="23" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListenerManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/ListenerManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-38">
-              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-              <folding>
-                <element signature="method#registerBluetoothMatching#0;class#ListenerManager#0" />
-                <element signature="method#registerBmsExchange#0;class#ListenerManager#0" />
-                <element signature="method#registerFaultReport#0;class#ListenerManager#0" />
-                <element signature="method#registerRfidOperation#0;class#ListenerManager#0" />
-                <element signature="method#registerTimerReport#0;class#ListenerManager#0" />
-                <element signature="method#getListenerManager#0;class#ListenerManager#0" />
               </folding>
             </state>
           </provider>
@@ -160,15 +183,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>D</find>
-      <find>Data</find>
-      <find>getData</find>
-      <find>bms</find>
-      <find>BatteryCompartmentLockStatus</find>
-      <find>is</find>
-      <find>gps</find>
-      <find>new SerialPortUtil(</find>
-      <find>code</find>
       <find>DeviceServiceTool</find>
       <find>ecu</find>
       <find>ECU</find>
@@ -181,6 +195,24 @@
       <find>getser</find>
       <find>break</find>
       <find>ObdItemEnum</find>
+      <find>{&quot;action&quot;: &quot;RFID&quot;,&quot;code</find>
+      <find>sendSerialPort: 发送数据</find>
+      <find>dataBean.getAction()</find>
+      <find>double</find>
+      <find>boolean</find>
+      <find>private</find>
+      <find>float</find>
+      <find>/**</find>
+      <find>*/</find>
+      <find>*</find>
+      <find>;</find>
+      <find>openLock</find>
+      <find>closeTrunkLock</find>
+      <find>getMCU</find>
+      <find>closeTrunkLockcloseTrunkLockFlagcode</find>
+      <find>Gears</find>
+      <find>msg</find>
+      <find>set</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -2536,23 +2568,25 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Gps.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/ReportMessage.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Bms.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Mcu.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Ecu.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/MeterMessage.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/bluetoothMatching/TAG.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/BleScanMessage.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/bluetoothMatching/BluetoothMatching.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/DeviceServiceTool.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/DeviceService.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/DataBean.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/ListenerManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/listener/MeterListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/SerialPortUtil.java" />
+        <option value="$PROJECT_DIR$/../../../MQTT/MyApplication2019.04.02/MyApplication2/app/src/main/java/com/example/a49762/myapplication/MQTTService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/MeterMessage.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/BmsExchangeMessage.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/DeviceService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/exception/DeviceServiceException.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/ReportMessage.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/DeviceServiceTool.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Ecu.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/DataBean.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/SerialPortUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Mcu.java" />
       </list>
     </option>
   </component>
@@ -2567,7 +2601,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -2630,12 +2663,35 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="bsp" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsp" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bsp" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="serial" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bsp" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bsp" type="462c0819:PsiDirectoryNode" />
               <item name="exception" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2826,13 +2882,12 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.32936507" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="10" visible="true" weight="0.35185185" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="10" visible="true" weight="0.3994709" />
       <window_info id="Captures" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23582767" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1866969" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32936507" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Gradle" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3994709" />
@@ -2846,6 +2901,7 @@
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2856,118 +2912,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/SerialPortUtil.java</url>
-          <line>277</line>
+          <line>129</line>
           <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/SerialPortUtil.java</url>
-          <line>276</line>
-          <properties />
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="16" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Bms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#167#168#0" expanded="true" />
-            <element signature="e#200#201#0" expanded="true" />
-            <element signature="e#258#259#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/exception/DeviceServiceException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="103" column="27" selection-start-line="103" selection-start-column="27" selection-end-line="103" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/ListenerManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="105" column="17" selection-start-line="105" selection-start-column="17" selection-end-line="105" selection-end-column="17" />
-          <folding>
-            <element signature="method#registerBluetoothMatching#0;class#ListenerManager#0" />
-            <element signature="method#registerBmsExchange#0;class#ListenerManager#0" />
-            <element signature="method#registerFaultReport#0;class#ListenerManager#0" />
-            <element signature="method#registerRfidOperation#0;class#ListenerManager#0" />
-            <element signature="method#registerTimerReport#0;class#ListenerManager#0" />
-            <element signature="method#getListenerManager#0;class#ListenerManager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/DataBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1444">
-          <caret line="84" column="33" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/MeterMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1558">
-          <caret line="108" column="18" selection-start-line="108" selection-start-column="18" selection-end-line="108" selection-end-column="18" />
-          <folding>
-            <element signature="e#1052#1053#0" expanded="true" />
-            <element signature="e#1080#1081#0" expanded="true" />
-            <element signature="e#1121#1122#0" expanded="true" />
-            <element signature="e#1155#1156#0" expanded="true" />
-            <element signature="e#1188#1189#0" expanded="true" />
-            <element signature="e#1218#1219#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1301#1302#0" expanded="true" />
-            <element signature="e#1339#1340#0" expanded="true" />
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1429#1430#0" expanded="true" />
-            <element signature="e#1477#1478#0" expanded="true" />
-            <element signature="e#1516#1517#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1609#1610#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1744#1745#0" expanded="true" />
-            <element signature="e#1903#1904#0" expanded="true" />
-            <element signature="e#1932#1933#0" expanded="true" />
-            <element signature="e#1975#1976#0" expanded="true" />
-            <element signature="e#2011#2012#0" expanded="true" />
-            <element signature="e#2050#2051#0" expanded="true" />
-            <element signature="e#2086#2087#0" expanded="true" />
-            <element signature="e#2143#2144#0" expanded="true" />
-            <element signature="e#2193#2194#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/DeviceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/DeviceServiceTool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -2995,14 +2948,46 @@
           <caret line="125" column="21" lean-forward="true" selection-start-line="125" selection-start-column="21" selection-end-line="125" selection-end-column="21" />
           <folding>
             <element signature="method#SerialPortUtil#0;class#SerialPortUtil#0" />
-            <element signature="e#2382#2604#0" expanded="true" />
-            <element signature="e#2603#2604#0" expanded="true" />
-            <element signature="e#3928#8746#0" expanded="true" />
-            <element signature="e#8745#8746#0" expanded="true" />
-            <element signature="e#9469#10923#0" expanded="true" />
-            <element signature="e#10922#10923#0" expanded="true" />
-            <element signature="e#11088#11761#0" expanded="true" />
-            <element signature="e#11760#11761#0" expanded="true" />
+            <element signature="e#2300#2522#0" expanded="true" />
+            <element signature="e#2521#2522#0" expanded="true" />
+            <element signature="e#2569#2757#0" expanded="true" />
+            <element signature="e#2756#2757#0" expanded="true" />
+            <element signature="e#2798#2990#0" expanded="true" />
+            <element signature="e#2989#2990#0" expanded="true" />
+            <element signature="e#3037#3217#0" expanded="true" />
+            <element signature="e#3216#3217#0" expanded="true" />
+            <element signature="e#3266#3492#0" expanded="true" />
+            <element signature="e#3491#3492#0" expanded="true" />
+            <element signature="e#3539#3722#0" expanded="true" />
+            <element signature="e#3721#3722#0" expanded="true" />
+            <element signature="e#3763#3944#0" expanded="true" />
+            <element signature="e#3943#3944#0" expanded="true" />
+            <element signature="e#4053#14856#0" expanded="true" />
+            <element signature="e#14855#14856#0" expanded="true" />
+            <element signature="e#12977#14439#0" expanded="true" />
+            <element signature="e#14438#14439#0" expanded="true" />
+            <element signature="e#14604#15277#0" expanded="true" />
+            <element signature="e#15276#15277#0" expanded="true" />
+            <element signature="e#18081#18082#0" expanded="true" />
+            <element signature="e#18107#18108#0" expanded="true" />
+            <element signature="e#18134#18135#0" expanded="true" />
+            <element signature="e#18160#18161#0" expanded="true" />
+            <element signature="e#18187#18188#0" expanded="true" />
+            <element signature="e#18213#18214#0" expanded="true" />
+            <element signature="e#18258#18259#0" expanded="true" />
+            <element signature="e#18293#18294#0" expanded="true" />
+            <element signature="e#18340#18341#0" expanded="true" />
+            <element signature="e#18376#18377#0" expanded="true" />
+            <element signature="e#18404#18405#0" expanded="true" />
+            <element signature="e#18431#18432#0" expanded="true" />
+            <element signature="e#18466#18467#0" expanded="true" />
+            <element signature="e#18498#18499#0" expanded="true" />
+            <element signature="e#18531#18532#0" expanded="true" />
+            <element signature="e#18561#18562#0" expanded="true" />
+            <element signature="e#18594#18595#0" expanded="true" />
+            <element signature="e#18624#18625#0" expanded="true" />
+            <element signature="e#18657#18658#0" expanded="true" />
+            <element signature="e#18687#18688#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3022,13 +3007,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/RfidMessage.java">
@@ -3038,105 +3023,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Gps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-          <folding>
-            <element signature="e#701#702#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Mcu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="84" column="22" selection-start-line="3" selection-start-column="3" selection-end-line="84" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Ecu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/MeterMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
-          <folding>
-            <element signature="e#1052#1053#0" expanded="true" />
-            <element signature="e#1080#1081#0" expanded="true" />
-            <element signature="e#1121#1122#0" expanded="true" />
-            <element signature="e#1155#1156#0" expanded="true" />
-            <element signature="e#1188#1189#0" expanded="true" />
-            <element signature="e#1218#1219#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1301#1302#0" expanded="true" />
-            <element signature="e#1339#1340#0" expanded="true" />
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1429#1430#0" expanded="true" />
-            <element signature="e#1477#1478#0" expanded="true" />
-            <element signature="e#1516#1517#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1609#1610#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1744#1745#0" expanded="true" />
-            <element signature="e#1903#1904#0" expanded="true" />
-            <element signature="e#1932#1933#0" expanded="true" />
-            <element signature="e#1975#1976#0" expanded="true" />
-            <element signature="e#2011#2012#0" expanded="true" />
-            <element signature="e#2050#2051#0" expanded="true" />
-            <element signature="e#2086#2087#0" expanded="true" />
-            <element signature="e#2143#2144#0" expanded="true" />
-            <element signature="e#2193#2194#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/BmsExchangeMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/listener/baojingListener.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Bms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#167#168#0" expanded="true" />
-            <element signature="e#200#201#0" expanded="true" />
-            <element signature="e#258#259#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/listener/AbsListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/ReportMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/ObdMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -3179,23 +3070,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/listener/RfidBindingListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/DeviceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/listener/RfidBindingListener.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/io/OutputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -3203,35 +3078,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/DataBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="469" column="22" selection-start-line="469" selection-start-column="22" selection-end-line="469" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#9684#9685#0" expanded="true" />
-            <element signature="e#9719#9720#0" expanded="true" />
-            <element signature="e#9763#9764#0" expanded="true" />
-            <element signature="e#9803#9804#0" expanded="true" />
-            <element signature="e#9837#9838#0" expanded="true" />
-            <element signature="e#9871#9872#0" expanded="true" />
-            <element signature="e#9913#9914#0" expanded="true" />
-            <element signature="e#9951#9952#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/listener/BmsExchangeListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/listener/EventListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -3263,13 +3113,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/listener/TimerReportListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/ListenerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-38">
@@ -3285,10 +3128,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/enums/ObdItemEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/config/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/ObdMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/listener/EventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../MQTT/MyApplication2019.04.02/MyApplication2/app/src/main/java/com/example/a49762/myapplication/Socket/SocketActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="59" column="46" selection-start-line="387" selection-start-column="24" selection-end-line="389" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../MQTT/MyApplication2019.04.02/MyApplication2/app/src/main/java/com/example/a49762/myapplication/MQTTService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1083">
+          <caret line="113" column="42" lean-forward="true" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../MQTT/MyApplication2019.04.02/MyApplication2/app/src/main/java/com/example/a49762/myapplication/Watering/UserActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="79" column="28" selection-start-line="244" selection-start-column="12" selection-end-line="248" selection-end-column="38" />
+          <folding>
+            <element signature="e#9225#9350#0" expanded="true" />
+            <element signature="e#9349#9350#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../MQTT/MyApplication2019.04.02/MyApplication2/app/src/main/java/com/example/a49762/myapplication/Watering/U2Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="348" column="13" selection-start-line="348" selection-start-column="13" selection-end-line="348" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/bluetoothMatching/BluetoothMatching.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="64" column="15" selection-start-line="63" selection-start-column="18" selection-end-line="64" selection-end-column="15" />
+        <state relative-caret-position="171">
+          <caret line="24" column="40" lean-forward="true" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1005#1006#0" expanded="true" />
@@ -3301,67 +3204,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/SerialPortUtil.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Gps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="94" column="27" selection-start-line="94" selection-start-column="27" selection-end-line="94" selection-end-column="27" />
+        <state relative-caret-position="133">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="24" />
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="24" />
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="24" />
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="24" />
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="24" />
           <folding>
-            <element signature="method#SerialPortUtil#0;class#SerialPortUtil#0" />
-            <element signature="e#2382#2604#0" expanded="true" />
-            <element signature="e#2603#2604#0" expanded="true" />
-            <element signature="e#3928#8746#0" expanded="true" />
-            <element signature="e#8745#8746#0" expanded="true" />
-            <element signature="e#9469#10923#0" expanded="true" />
-            <element signature="e#10922#10923#0" expanded="true" />
-            <element signature="e#11088#11761#0" expanded="true" />
-            <element signature="e#11760#11761#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/enums/ObdItemEnum.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/BmsExchangeMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="23" />
+        <state relative-caret-position="57">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/config/Config.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/MeterMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="19" column="45" lean-forward="true" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+        <state relative-caret-position="171">
+          <caret line="33" column="33" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="33" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/io/IOException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
+        <state relative-caret-position="38">
+          <caret line="39" column="61" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/exception/DeviceServiceException.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/DeviceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+        <state relative-caret-position="259">
+          <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/listener/TimerReportListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/ReportMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
-          <caret line="81" column="50" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
+          <caret line="212" column="22" selection-start-line="212" selection-start-column="22" selection-end-line="212" selection-end-column="22" />
+          <folding>
+            <element signature="e#1157#1158#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#1367#1368#0" expanded="true" />
+            <element signature="e#1526#1527#0" expanded="true" />
+            <element signature="e#1565#1566#0" expanded="true" />
+            <element signature="e#1990#1991#0" expanded="true" />
+            <element signature="e#2018#2019#0" expanded="true" />
+            <element signature="e#2059#2060#0" expanded="true" />
+            <element signature="e#2093#2094#0" expanded="true" />
+            <element signature="e#2120#2121#0" expanded="true" />
+            <element signature="e#2146#2147#0" expanded="true" />
+            <element signature="e#2181#2182#0" expanded="true" />
+            <element signature="e#2206#2207#0" expanded="true" />
+            <element signature="e#2442#2443#0" expanded="true" />
+            <element signature="e#2472#2473#0" expanded="true" />
+            <element signature="e#2590#2591#0" expanded="true" />
+            <element signature="e#2620#2621#0" expanded="true" />
+            <element signature="e#2739#2740#0" expanded="true" />
+            <element signature="e#2770#2771#0" expanded="true" />
+            <element signature="e#2892#2893#0" expanded="true" />
+            <element signature="e#2922#2923#0" expanded="true" />
+            <element signature="e#3477#3478#0" expanded="true" />
+            <element signature="e#3510#3511#0" expanded="true" />
+            <element signature="e#3646#3647#0" expanded="true" />
+            <element signature="e#3682#3683#0" expanded="true" />
+            <element signature="e#3830#3831#0" expanded="true" />
+            <element signature="e#3866#3867#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/exception/DeviceServiceException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/libs/gson-2.8.5.jar!/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/DeviceServiceTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="24" column="55" lean-forward="true" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+        <state relative-caret-position="20">
+          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
           <folding>
+            <element signature="method#DeviceServiceTool#1;class#DeviceServiceTool#0" />
+            <element signature="method#openLock#0;class#DeviceServiceTool#0" />
             <element signature="method#closeLock#0;class#DeviceServiceTool#0" />
             <element signature="method#openTrunkLock#0;class#DeviceServiceTool#0" />
             <element signature="method#closeTrunkLock#0;class#DeviceServiceTool#0" />
@@ -3369,6 +3325,141 @@
             <element signature="method#getECU#0;class#DeviceServiceTool#0" />
             <element signature="method#getMCU#0;class#DeviceServiceTool#0" />
             <element signature="method#setBatteryIds#0;class#DeviceServiceTool#0" />
+            <element signature="method#getBatteryIds#0;class#DeviceServiceTool#0" />
+            <element signature="method#getOBD#0;class#DeviceServiceTool#0" />
+            <element signature="method#delay#0;class#DeviceServiceTool#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/os/Looper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="195" selection-start-line="195" selection-end-line="195" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../R&amp;C/Car_TestV3.0/Car_TestV3.0/app/src/main/java/com/example/a49762/car_test/Bus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="1682" column="52" lean-forward="true" selection-start-line="1679" selection-start-column="24" selection-end-line="1682" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="105" column="22" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/DataBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+            <element signature="e#615#616#0" expanded="true" />
+            <element signature="e#3225#3226#0" expanded="true" />
+            <element signature="e#3271#3272#0" expanded="true" />
+            <element signature="e#3460#3461#0" expanded="true" />
+            <element signature="e#3497#3498#0" expanded="true" />
+            <element signature="e#5534#5535#0" expanded="true" />
+            <element signature="e#5568#5569#0" expanded="true" />
+            <element signature="e#8799#8800#0" expanded="true" />
+            <element signature="e#8835#8836#0" expanded="true" />
+            <element signature="e#8878#8879#0" expanded="true" />
+            <element signature="e#8920#8921#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Mcu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+          <folding>
+            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#268#269#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#643#644#0" expanded="true" />
+            <element signature="e#676#677#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#772#773#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Ecu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4522">
+          <caret line="314" column="5" selection-start-line="314" selection-start-column="5" selection-end-line="314" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/model/Bms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#167#168#0" expanded="true" />
+            <element signature="e#200#201#0" expanded="true" />
+            <element signature="e#258#259#0" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/redescooter/ecu/bsp/api/serial/SerialPortUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="260" column="58" selection-start-line="260" selection-start-column="58" selection-end-line="260" selection-end-column="58" />
+          <folding>
+            <element signature="method#SerialPortUtil#0;class#SerialPortUtil#0" />
+            <element signature="e#2300#2522#0" expanded="true" />
+            <element signature="e#2521#2522#0" expanded="true" />
+            <element signature="e#2569#2757#0" expanded="true" />
+            <element signature="e#2756#2757#0" expanded="true" />
+            <element signature="e#2798#2990#0" expanded="true" />
+            <element signature="e#2989#2990#0" expanded="true" />
+            <element signature="e#3037#3217#0" expanded="true" />
+            <element signature="e#3216#3217#0" expanded="true" />
+            <element signature="e#3266#3492#0" expanded="true" />
+            <element signature="e#3491#3492#0" expanded="true" />
+            <element signature="e#3539#3722#0" expanded="true" />
+            <element signature="e#3721#3722#0" expanded="true" />
+            <element signature="e#3763#3944#0" expanded="true" />
+            <element signature="e#3943#3944#0" expanded="true" />
+            <element signature="e#4053#14856#0" expanded="true" />
+            <element signature="e#14855#14856#0" expanded="true" />
+            <element signature="e#12977#14439#0" expanded="true" />
+            <element signature="e#14438#14439#0" expanded="true" />
+            <element signature="e#14604#15277#0" expanded="true" />
+            <element signature="e#15276#15277#0" expanded="true" />
+            <element signature="e#18081#18082#0" expanded="true" />
+            <element signature="e#18107#18108#0" expanded="true" />
+            <element signature="e#18134#18135#0" expanded="true" />
+            <element signature="e#18160#18161#0" expanded="true" />
+            <element signature="e#18187#18188#0" expanded="true" />
+            <element signature="e#18213#18214#0" expanded="true" />
+            <element signature="e#18258#18259#0" expanded="true" />
+            <element signature="e#18293#18294#0" expanded="true" />
+            <element signature="e#18340#18341#0" expanded="true" />
+            <element signature="e#18376#18377#0" expanded="true" />
+            <element signature="e#18404#18405#0" expanded="true" />
+            <element signature="e#18431#18432#0" expanded="true" />
+            <element signature="e#18466#18467#0" expanded="true" />
+            <element signature="e#18498#18499#0" expanded="true" />
+            <element signature="e#18531#18532#0" expanded="true" />
+            <element signature="e#18561#18562#0" expanded="true" />
+            <element signature="e#18594#18595#0" expanded="true" />
+            <element signature="e#18624#18625#0" expanded="true" />
+            <element signature="e#18657#18658#0" expanded="true" />
+            <element signature="e#18687#18688#0" expanded="true" />
           </folding>
         </state>
       </provider>

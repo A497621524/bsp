@@ -24,6 +24,7 @@ import com.redescooter.ecu.bsp.api.serial.SerialPortUtil;
 import com.redescooter.ecu.bsp.exception.DeviceServiceException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private void Device(){
+    private void Device() throws DeviceServiceException{
         DeviceService deviceService = new DeviceServiceTool();
         int results1 = deviceService.openLock();
         int results2 = deviceService.closeLock();
@@ -88,13 +89,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void test(View v){
-        new Thread(){
-            @Override
-            public void run() {
-                super.run();
-                serialPortUtil.sendSerialPort("串口"); //测试发送
-            }
-        }.start();
+
+        final DeviceServiceTool deviceServiceTool = new DeviceServiceTool();
+
+            new Thread(){
+                @Override
+                public void run() {
+                    super.run();
+
+                    try {
+                    deviceServiceTool.getMCU();
+                    } catch (DeviceServiceException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }.start();
+
     }
 
 

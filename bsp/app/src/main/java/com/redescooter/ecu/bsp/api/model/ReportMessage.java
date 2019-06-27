@@ -209,25 +209,25 @@ package com.redescooter.ecu.bsp.api.model;
         this.climbingAngle = climbingAngle;
     }
 
-    @Override
-    public String toString() {
-        return "ReportMessage{" +
-                "lockStatus=" + lockStatus +
-                ", trunkLockStatus=" + trunkLockStatus +
-                ", trunkTemperature=" + trunkTemperature +
-                ", batteryCompartmentLockStatus=" + batteryCompartmentLockStatus +
-                ", speed=" + speed +
-                ", Gps=" + gps +
-                ", inclinationAngle=" + inclinationAngle +
-                ", current=" + current +
-                ", voltage=" + voltage +
-                ", capacity=" + capacity +
-                ", torsion=" + torsion +
-                ", batteryTemperature=" + batteryTemperature +
-                ", externalTemperature=" + externalTemperature +
-                ", motorSpeed=" + motorSpeed +
-                ", singleMileage=" + singleMileage +
-                ", climbingAngle=" + climbingAngle +
-                '}';
+        @Override
+        public String toString() {
+            return "ReportMessage{" +
+                    "lockStatus=" + lockStatus +
+                    ", trunkLockStatus=" + trunkLockStatus +
+                    ", trunkTemperature=" + trunkTemperature +
+                    ", batteryCompartmentLockStatus=" + batteryCompartmentLockStatus +
+                    ", speed=" + speed +
+                    ", gps=" + gps +
+                    ", inclinationAngle=" + inclinationAngle +
+                    ", current=" + current +
+                    ", voltage=" + voltage +
+                    ", capacity=" + capacity +
+                    ", torsion=" + torsion +
+                    ", batteryTemperature=" + batteryTemperature +
+                    ", externalTemperature=" + externalTemperature +
+                    ", motorSpeed=" + motorSpeed +
+                    ", singleMileage=" + singleMileage +
+                    ", climbingAngle=" + climbingAngle +
+                    '}';
+        }
     }
-}

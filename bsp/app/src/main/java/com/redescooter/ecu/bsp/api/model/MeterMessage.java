@@ -14,7 +14,6 @@ public class MeterMessage {
      */
     private float totalMileage;
 
-
     /**
      * 单次里程  单位 米
      * 从开锁到关锁为一次里程

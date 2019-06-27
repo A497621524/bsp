@@ -6,6 +6,7 @@ import android.os.Message;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.redescooter.ecu.bsp.api.DeviceServiceTool;
 import com.redescooter.ecu.bsp.api.ListenerManager;
 import com.redescooter.ecu.bsp.api.listener.BluetoothMatchingListener;
 import com.redescooter.ecu.bsp.api.listener.BmsExchangeListener;
@@ -29,6 +30,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import android_serialport_api.SerialPort;
 
@@ -49,12 +52,13 @@ public class SerialPortUtil {
 
     private ListenerManager listenerManager = ListenerManager.getListenerManager();//接口管理   使用接口先new 一个
 
-    public Bms bms = new Bms();
-    public Ecu ecu = new Ecu();
-    public Mcu mcu = new Mcu();
-    public MeterMessage meterMessage = new MeterMessage();
-    public ReportMessage reportMessage = new ReportMessage();
-    public int code;
+
+    private Bms bms = new Bms();
+    private Ecu ecu = new Ecu();
+    private Mcu mcu = new Mcu();
+    private MeterMessage meterMessage = new MeterMessage();
+    private ReportMessage reportMessage = new ReportMessage();
+    private int code;
 
     public SerialPortUtil() {
     }
@@ -92,13 +96,13 @@ public class SerialPortUtil {
             @Override
             public boolean handle(String rfid, String key) {
                 Log.e(TAG, "Rfid=" + rfid + " key=" + key);
-                return true;
+                return false;
             }
         });
         listenerManager.registerTimerReport(new TimerReportListener() {
             @Override
             public void handle(ReportMessage msg) {
-                Log.e(TAG, "handle: " + msg.hashCode());
+                Log.e(TAG, "handle: " + msg.toString());
 
             }
         });
@@ -109,34 +113,59 @@ public class SerialPortUtil {
             }
         });
     }
-
+    private String data1 = "";
     public Handler serialHandler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+            String action = "";
             switch (msg.what){
                 case 1:
                     String data = (String)msg.obj;
-                    Log.e(TAG, "data： " + data);
+                    Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+                    Matcher m = p.matcher(data);
+                    data = m.replaceAll("");
+                    Log.e(TAG, "收到的数据为： " + data);
+
+                    if (data.charAt(0) == '{' && data.charAt(data.length() - 1) == '}' && data.charAt(data.length() - 2) == '}') {
+                        Log.e(TAG, "数据接收成功");
+                        data1 = "";
+                        Message msg1 = new Message();
+                        msg1.what = 2;
+                        msg1.obj = data;
+                        serialHandler.sendMessage(msg1);
+                    }else {
+                        Log.e(TAG, "格式不对或者数据没接收完");
+                        data1 = data1 + data;
+                        if (data1.charAt(0) == '{' && data1.charAt(data1.length() - 1) == '}' && data1.charAt(data1.length() - 2) == '}') {
+                            Message msg2 = new Message();
+                            msg2.what = 1;
+                            msg2.obj = data1;
+                            serialHandler.handleMessage(msg2);
+                        }
+                    }
+                    break;
+                case 2:
+                    String completeData = (String)msg.obj;
                     Gson gson = new Gson();
-                    dataBean = gson.fromJson(data,DataBean.class);
-
-                    if (dataBean.getAction().equals("meter")){
+                    dataBean = new DataBean();
+                    dataBean = gson.fromJson(completeData, DataBean.class);
+                    action = dataBean.getAction();
+                    if (action.equals("meter")) {
                         serialHandler.sendEmptyMessage(20);
-                    }
-                    if (dataBean.getAction().equals("timerData")){
+                    } else if (action.equals("timerData")) {
                         serialHandler.sendEmptyMessage(21);
-                    }
-                    if (dataBean.getAction().equals("notice")){
+                    } else if (action.equals("notice")) {
                         serialHandler.sendEmptyMessage(22);
-                    }
-                    if (dataBean.getAction().equals("bms")){
+                    } else if (action.equals("bms")) {
                         serialHandler.sendEmptyMessage(23);
-                    }
-                    if (dataBean.getAction().equals("RFID")) {
+                    } else if (action.equals("RFID")) {
                         serialHandler.sendEmptyMessage(24);
+                    } else if (action.equals("openLock") || action.equals("closeLock") || action.equals("openTrunkLock")
+                            || action.equals("closeTrunkLock") || action.equals("getBMS")
+                            || action.equals("getECU") || action.equals("getMCU") || action.equals("getReport")) {
+                        serialHandler.sendEmptyMessage(25);
                     }
-
                     break;
                 case 20://仪表信息
                     code = dataBean.getCode();
@@ -188,6 +217,74 @@ public class SerialPortUtil {
                         sendSerialPort("{\"action\": \"RFID\",\"code\": \"-1\", \"data\": {}}");
                     }
                     break;
+                case 25:
+                    action = dataBean.getAction();
+                    code = dataBean.getCode();
+                    if (action.equals("openLock")){
+                        DeviceServiceTool.openLockFlag = false;
+                    }else if (action.equals("closeLock")){
+                        DeviceServiceTool.closeLockFlag = false;
+                    }else if (action.equals("openTrunkLock")){
+                        DeviceServiceTool.openTrunkLockFlag = false;
+                    }else if (action.equals("closeTrunkLock")){
+                        DeviceServiceTool.closeTrunkLockFlag = false;
+                    }else if (action.equals("getBMS")){
+                        DeviceServiceTool.getBMSFlag = false;
+                    }else if (action.equals("getECU")){
+                        ecu = new Ecu();
+                        ecu.setBatteryCompartmentLockStatus(dataBean.getdata().getBatteryCompartmentLockStatus());
+                        ecu.setBatteryTemperature(dataBean.getdata().getBatteryTemperature());
+                        ecu.setCapacity(dataBean.getdata().getCapacity());
+                        ecu.setClimbingAngle(dataBean.getdata().getClimbingAngle());
+                        ecu.setExternalTemperature(dataBean.getdata().getExternalTemperature());
+                        ecu.setGears(dataBean.getdata().getGears());
+                        ecu.getGps().setGPRMC(dataBean.getdata().getGps().getGPRMC());
+                        ecu.getGps().setGPGSV(dataBean.getdata().getGps().getGPGSV());
+                        ecu.getGps().setGPGSA(dataBean.getdata().getGps().getGPGSA());
+                        ecu.getGps().setGPGLL(dataBean.getdata().getGps().getGPGLL());
+                        ecu.getGps().setGPGGA(dataBean.getdata().getGps().getGPGGA());
+                        ecu.setInclinationAngle(dataBean.getdata().getInclinationAngle());
+                        ecu.setLockStatus(dataBean.getdata().getLockStatus());
+                        ecu.setMotorSpeed(dataBean.getdata().getMotorSpeed());
+                        ecu.setSingleMileage(dataBean.getdata().getSingleMileage());
+                        ecu.setSpeed(dataBean.getdata().getSpeed());
+                        ecu.setLockStatus(dataBean.getdata().getLockStatus());
+                        ecu.setTorsion(dataBean.getdata().getTorsion());
+                        ecu.setTrunkLockStatus(dataBean.getdata().getTrunkLockStatus());
+                        ecu.setTrunkTemperature(dataBean.getdata().getTrunkTemperature());
+                        DeviceServiceTool.getECUFlag = false;
+                    }else if (action.equals("getMCU")){
+                        DeviceServiceTool.getMCUFlag = false;
+                        mcu = new Mcu();
+                        mcu.setControllerVersionNumber(dataBean.getdata().getControllerVersionNumber());
+                        mcu.setFactoryVersion(dataBean.getdata().getFactoryVersion());
+                        mcu.setMotorSpeed(dataBean.getdata().getMotorSpeed());
+                    }else if (action.equals("getReport")) {
+                        DeviceServiceTool.getReportFlag = false;
+                        reportMessage = new ReportMessage();
+                        reportMessage.setBatteryCompartmentLockStatus(dataBean.getdata().getBatteryCompartmentLockStatus());
+                        reportMessage.setBatteryTemperature(dataBean.getdata().getBatteryTemperature());
+                        reportMessage.setCapacity(dataBean.getdata().getCapacity());
+                        reportMessage.setClimbingAngle(dataBean.getdata().getClimbingAngle());
+                        reportMessage.setCurrent(dataBean.getdata().getCurrent());
+                        reportMessage.setExternalTemperature(dataBean.getdata().getExternalTemperature());
+                        reportMessage.getGps().setGPGGA(dataBean.getdata().getGps().getGPGGA());
+                        reportMessage.getGps().setGPGLL(dataBean.getdata().getGps().getGPGLL());
+                        reportMessage.getGps().setGPGSA(dataBean.getdata().getGps().getGPGSA());
+                        reportMessage.getGps().setGPGSV(dataBean.getdata().getGps().getGPGSV());
+                        reportMessage.getGps().setGPRMC(dataBean.getdata().getGps().getGPRMC());
+                        reportMessage.setInclinationAngle(dataBean.getdata().getTotalMileage());
+                        reportMessage.setLockStatus(dataBean.getdata().getLockStatus());
+                        reportMessage.setMotorSpeed(dataBean.getdata().getMotorSpeed());
+                        reportMessage.setSingleMileage(dataBean.getdata().getSingleMileage());
+                        reportMessage.setSpeed(dataBean.getdata().getSpeed());
+                        reportMessage.setTorsion(dataBean.getdata().getTotalMileage());
+                        reportMessage.setTrunkLockStatus(dataBean.getdata().getTrunkLockStatus());
+                        reportMessage.setTrunkTemperature(dataBean.getdata().getTrunkTemperature());
+                        reportMessage.setVoltage(dataBean.getdata().getVoltage());
+
+                    }
+                    break;
             }
         }
     };
@@ -227,23 +324,16 @@ public class SerialPortUtil {
                 while (true) {
                     int size;
                     try {
-                        byte[] buffer = new byte[1024];
+                        byte[] buffer = new byte[2048];
                         if (mInputStream == null)
                             return;
                         size = mInputStream.read(buffer);
                         if (size > 0) {
-                            int j = 0;
-                            for (int i = 0;i < buffer.length;i++){
-                                if (buffer[i + 1] != 0){
-                                    j++;
-                                }else {
-                                    break;
-                                }
-                            }
-                            byte[] bytes = new byte[j];
-                            for (int i = 0;i < j;i++){
+                            byte[] bytes = new byte[size];
+                            for (int i = 0;i < size;i++){
                                 bytes[i] = buffer[i];
                             }
+//                            Log.e("TAG","清零后的长度bytes=" + bytes.length + ",收到未除去零的长度buffer=" + buffer.length + "," + Arrays.toString(bytes));
                             String recinfo = new String(bytes,"GBK");
                             Message msg = new Message();
                             msg.what = 1;
@@ -327,7 +417,44 @@ public class SerialPortUtil {
 
 
 
+    public Bms getBms() {
+        return bms;
+    }
 
+    public Ecu getEcu() {
+        return ecu;
+    }
+
+    public Mcu getMcu() {
+        return mcu;
+    }
+
+    public MeterMessage getMeterMessage() {
+        return meterMessage;
+    }
+
+    public ReportMessage getReportMessage() {
+        return reportMessage;
+    }
+
+    public int getCode() {
+        return code;
+    }
+    public void setCode(int code){
+        this.code = code;
+    }
+    public void setBms(Bms bms){
+        this.bms = bms;
+    }
+    public void setEcu(Ecu ecu){
+        this.ecu = ecu;
+    }
+    public void setMcu(Mcu mcu){
+        this.mcu = mcu;
+    }
+    public void setReportMessage(ReportMessage reportMessage){
+        this.reportMessage = reportMessage;
+    }
 
 }
 

@@ -18,13 +18,13 @@ import java.util.List;
  */
 public interface DeviceService {
 
-    int openLock();
+    int openLock() throws DeviceServiceException;
 
-    int closeLock();
+    int closeLock() throws DeviceServiceException;
 
-    int openTrunkLock();
+    int openTrunkLock() throws DeviceServiceException;
 
-    int closeTrunkLock();
+    int closeTrunkLock() throws DeviceServiceException;
     /*
         获取BMS出厂信息
      */
@@ -38,14 +38,31 @@ public interface DeviceService {
      */
     Mcu getMCU() throws DeviceServiceException;
 
+    /**
+     *  设置电池组id
+     * @param batteryIds 电池组id
+     * @return 电池组id
+     * @throws DeviceServiceException
+     */
     List<String> setBatteryIds(List<String> batteryIds) throws DeviceServiceException;
 
+    /**
+     * 获取电池组id
+     * @return 电池组id
+     * @throws DeviceServiceException
+     */
     List<String> getBatteryIds() throws DeviceServiceException;
     /*
     主动获取定时上报数据
      */
     ReportMessage getReport() throws DeviceServiceException;
 
+    /**
+     *  获取OBD信息
+     * @param obdItemEnum 获取指定的OBD
+     * @return OBD信息
+     * @throws DeviceServiceException
+     */
     ObdMessage getOBD(ObdItemEnum obdItemEnum) throws DeviceServiceException;
 
 

@@ -156,6 +156,10 @@ public class DataBean {
          * 电机转速
          */
         private double motorSpeed;
+        /**
+         * 档位
+         */
+        private int gears;
 
 
 
@@ -187,6 +191,31 @@ public class DataBean {
          */
         private String key;
 
+        /**
+         * 控制器版本号
+         */
+        private String controllerVersionNumber;
+
+        /**
+         * 出厂信息
+         */
+        private String factoryVersion;
+
+        public String getControllerVersionNumber() {
+            return controllerVersionNumber;
+        }
+
+        public void setControllerVersionNumber(String controllerVersionNumber) {
+            this.controllerVersionNumber = controllerVersionNumber;
+        }
+
+        public String getFactoryVersion() {
+            return factoryVersion;
+        }
+
+        public void setFactoryVersion(String factoryVersion) {
+            this.factoryVersion = factoryVersion;
+        }
 
         public float getSpeed() {
             return speed;
@@ -408,6 +437,14 @@ public class DataBean {
 
         public void setBatteryTemperature(double batteryTemperature) {
             this.batteryTemperature = batteryTemperature;
+        }
+
+        public int getGears() {
+            return gears;
+        }
+
+        public void setGears(int gears) {
+            this.gears = gears;
         }
 
         public double getExternalTemperature() {
