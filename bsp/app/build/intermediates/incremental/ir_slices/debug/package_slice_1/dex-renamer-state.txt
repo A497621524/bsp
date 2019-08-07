@@ -1,4 +1,0 @@
-#Wed Jun 26 19:01:03 CST 2019
-base.0=D\:\\Android\\Android\\bsp\\ses-android-bsp\\bsp\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
-path.0=classes.dex
-renamed.0=classes.dex
